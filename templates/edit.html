@@ -10,11 +10,14 @@
 <body>
     <h2 style ="text-align:center; margin:50px auto;">
         <img alt="Avatar" src="{{ url_for('static', filename='images/3.png') }}">
-        <a style="color:#aaa;font-size:44px">Movie List</a>
+        <a style="color:#aaa;font-size:44px">Movie</a>
     </h2>
-    <h3>Edit Item </h3>
+    <h3>Edit Item
+        <span class="float-right">
+                <a href="{{ url_for('admin_movies') }}">Go Back</a>
+        </span>
+    </h3>
     <form method="post">
-        Id <input type="text" name="id" autocomplete="off" required value="{{ movie[0][0] }}">
         Name <input type="text" name="title" autocomplete="off" required value="{{ movie[0][1] }}">
         Release Date <input type="text" name="release_date" autocomplete="off" required value="{{ movie[0][2] }}">
         Country <input type="text" name="country" autocomplete="off" required value="{{ movie[0][3] }}">

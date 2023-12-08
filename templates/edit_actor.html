@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAD Search</title>
+    <link rel="icon" href="{{ url_for('static', filename='3.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+<body>
+    <h2 style ="text-align:center; margin:50px auto;">
+        <img alt="Avatar" src="{{ url_for('static', filename='images/3.png') }}">
+        <a style="color:#aaa;font-size:44px">Actor</a>
+    </h2>
+    <h3>Edit Item
+         <span class="float-right">
+                <a href="{{ url_for('admin_actors') }}">Go Back</a>
+      </span>
+    </h3>
+    <form method="post">
+        Name <input type="text" name="title" autocomplete="off" required value ="{{ actor[0][1]}}">
+        Gender <input type="text" name="gender" autocomplete="off" required value ="{{ actor[0][2]}}">
+        Country <input type="text" name="country" autocomplete="off" required value ="{{ actor[0][3]}}">
+        <input class="btn" type="submit" name="submit" value="Update">
+    </form>
+    <footer>
+        <small>&copy; 2023 Baihk</small>
+  </footer>
+</body>
+</html>

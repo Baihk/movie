@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAD Search</title>
+    <link rel="icon" href="{{ url_for('static', filename='3.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+    <h2 style ="text-align:center; margin:50px auto">
+        <img alt="Avatar" src="{{ url_for('static', filename='images/3.png') }}">
+        <a style="color:#aaa;font-size:44px">MAD Search</a>
+    </h2>
+    <h3 style ="margin:50px auto">
+        <a style="color:#FFFFF;font-size:36px">姓名： {{actor[0][1]}}</a><a style="padding: 8px 25px;
+      background-color: #3385ff;
+      color: #fff;
+      font-size: 30px;
+      float:right;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 10px;
+      text-decoration: none;" href = "https://baike.baidu.com/item/{{actor[0][1]}}"target="_blank" title="Find this actor on Baike">百度百科
+    </a>
+
+    </h3>
+    <h4 style ="margin:30px auto">
+        <a style="color:#FFFFF;font-size:32px">性别： {{actor[0][2]}}</a>
+    </h4>
+    <h4 style ="margin:30px auto">
+        <a style="color:#FFFFF;font-size:32px">国家： {{actor[0][3]}}</a>
+    </h4>
+    <h4 style ="margin:30px auto">
+        <a style="color:#FFFFF;font-size:32px">导演： </a>
+        {% if direct_movie %}
+            {% for direct_movie in direct_movie %}
+            <a style="color:#FFFFF;font-size:32px" href = "{{ url_for('movie_search', movie_name= direct_movie[0])}}">《{{direct_movie[0]}}》  </a>
+            {% endfor %}
+        {% else %}
+            <a style="color:#FFFFF;font-size:32px">电影未录入 </a>
+        {% endif%}
+    </h4>
+    <h4 style ="margin:30px auto">
+        <a style="color:#FFFFF;font-size:32px">主演： </a>
+        {% if act_movie  %}
+            {% for act_movie in act_movie %}
+            <a style="color:#FFFFF;font-size:32px"href = "{{ url_for('movie_search', movie_name= act_movie[0])}}">《{{act_movie[0]}}》</a>
+            {% endfor %}
+        {% else %}
+            <a style="color:#FFFFF;font-size:32px">电影未录入 </a>
+        {% endif%}
+    </h4>
+    <h5 style ="text-align:center; margin:32px auto">
+        <a href="{{ url_for('index_actor') }}" style="font-size:20px" >Go Back</a>
+    </h5>
+    <footer>
+        <small>&copy; 2023 Baihk</a></small>
+    </footer>
+</body>
+</html>

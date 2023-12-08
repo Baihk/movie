@@ -34,12 +34,13 @@
         <a style="color:#FFFFF;font-size:32px">票房： {{movie[0][7]}} 亿</a>
     </h4>
      <h4 style ="margin:30px auto">
-        <a style="color:#FFFFF;font-size:32px">导演： {{director[0][0]}}</a>
+        <a style="color:#FFFFF;font-size:32px" >导演：</a>
+         <a style="color:#FFFFF;font-size:32px" href = "{{ url_for('actor_search', actor_name=director[0][0] )}}" > {{director[0][0]}}</a>
     </h4>
     <h4 style ="margin:30px auto">
-        <a style="color:#FFFFF;font-size:32px">主演： </a>
+        <a style="color:#FFFFF;font-size:32px" >主演： </a>
         {% for actor in actor %}
-        <a style="color:#FFFFF;font-size:32px">{{actor[0]}} </a>
+        <a style="color:#FFFFF;font-size:32px" href = "{{ url_for('actor_search', actor_name=actor[0] )}}">{{actor[0]}} </a>
         {% endfor %}
     </h4>
     <h5 style ="text-align:center; margin:32px auto">

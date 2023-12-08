@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAD Search</title>
+    <link rel="icon" href="{{ url_for('static', filename='3.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+    <h2 style ="text-align:center; margin:50px auto;">
+        <img alt="Avatar" src="{{ url_for('static', filename='images/3.png') }}">
+        <a style="color:#aaa;font-size:44px">Actor List</a>
+    </h2>
+    <p>{{ actors|length }} Actors
+        <span class="float-right">
+                <a href="{{ url_for('index_actor') }}">Go Back</a>
+      </span>
+    </p>
+
+    <form method="post">
+    Id <input type="text" name="id" autocomplete="off" required>
+    Name <input type="text" name="title" autocomplete="off" required>
+    Gender <input type="text" name="gender" autocomplete="off" required>
+    Country <input type="text" name="country" autocomplete="off" required>
+    <input class="btn" type="submit" name="submit" value="Add">
+</form>
+    <ul class = "movie-list">
+        {% for actor in actors %}
+        <li>{{ actor[0] }} - {{ actor[1] }}- {{ actor[2] }} - {{ actor[3] }}
+            <span class = "float-right">
+                <a class="btn" href="{{ url_for('edit_actor', actor_id=actor[0]) }}">Edit</a>
+                <form class="inline-form" method="post" action="{{ url_for('delete_actor', actor_id=actor[0]) }}">
+                     <input class="btn" type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure?')">
+                </form>
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+    <footer>
+
+        <small>&copy; 2023 Baihk</a></small>
+    </footer>
+</body>
+</html>

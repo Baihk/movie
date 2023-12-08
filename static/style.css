@@ -22,6 +22,8 @@ footer {
 
 /*电影查询*/
     .container {
+	
+
       margin: 50px auto;
       width: 800px;
       text-align: center;
@@ -122,6 +124,11 @@ input[name=year] {
 input[name=box] {
     width: 50px;
 }
+
+input[name=gender] {
+    width: 50px;
+}
+
 
 
 .btn {
