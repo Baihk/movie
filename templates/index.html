@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAD Search</title>
+    <link rel="icon" href="{{ url_for('static', filename='3.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+    <h2 style ="text-align:center; margin:50px auto;">
+        <img alt="Avatar" src="{{ url_for('static', filename='images/3.png') }}">
+        <a style="color:#aaa;font-size:44px">MAD Search</a>
+    </h2>
+  <div class="container">
+    <form class="input-row" method="POST">
+        <input type="text" id="searchInput" class="input-field" name = 'searchInput' required>
+        <button id="searchMovieBtn" class="button">查询电影</button>
+    </form>
+    <div class="admin-link">
+      <a href="/admin_movies">admin movies</a>
+    </div>
+  </div>
+  <footer>
+        <small>&copy; 2023 Baihk</small>
+  </footer>
+</body>
+</html>

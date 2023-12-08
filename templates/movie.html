@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAD Search</title>
+    <link rel="icon" href="{{ url_for('static', filename='3.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+    <h2 style ="text-align:center; margin:50px auto">
+        <img alt="Avatar" src="{{ url_for('static', filename='images/3.png') }}">
+        <a style="color:#aaa;font-size:44px">MAD Search</a>
+    </h2>
+    <h3 style ="margin:50px auto">
+        <a style="color:#FFFFF;font-size:36px">电影名称： {{movie[0][1]}}</a>
+        <span class = "float-right">
+                <a class = "imdb_movie" href = "https://www.imdb.com/find?q={{movie[1]}}"target="_blank" title="Find this movie on IMDb">IMDb</a>
+        </span>
+    </h3>
+    <h4 style ="margin:30px auto">
+        <a style="color:#FFFFF;font-size:32px">上映日期： {{movie[0][2]}}</a>
+    </h4>
+    <h4 style ="margin:30px auto">
+        <a style="color:#FFFFF;font-size:32px">国家： {{movie[0][3]}}</a>
+    </h4>
+    <h4 style ="margin:30px auto">
+        <a style="color:#FFFFF;font-size:32px">类型： {{movie[0][4]}}</a>
+    </h4>
+     <h4 style ="margin:30px auto">
+        <a style="color:#FFFFF;font-size:32px">票房： {{movie[0][7]}} 亿</a>
+    </h4>
+     <h4 style ="margin:30px auto">
+        <a style="color:#FFFFF;font-size:32px">导演： {{director[0][0]}}</a>
+    </h4>
+    <h4 style ="margin:30px auto">
+        <a style="color:#FFFFF;font-size:32px">主演： </a>
+        {% for actor in actor %}
+        <a style="color:#FFFFF;font-size:32px">{{actor[0]}} </a>
+        {% endfor %}
+    </h4>
+    <h5 style ="text-align:center; margin:32px auto">
+        <a href="{{ url_for('index') }}" style="font-size:20px" >Go Back</a>
+    </h5>
+    <footer>
+        <small>&copy; 2023 Baihk</a></small>
+    </footer>
+</body>
+</html>

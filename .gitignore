@@ -1,0 +1,11 @@
+*.pyc
+*~
+__pycache__
+.DS_Store
+.env
+.db
+movie.txt
+movie.xlsx
+readdb.py
+read_db_as_excel.py
+write_data.py
