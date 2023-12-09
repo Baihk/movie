@@ -11,6 +11,7 @@
     {% for message in get_flashed_messages() %}
         <div class="alert">{{ message }}</div>
     {% endfor %}
+    <a style="font-size:200px"></a><br>
     <h2 style ="color:#aaa;text-align:center; margin:50px auto;">
         <img alt="Avatar" src="{{ url_for('static', filename='images/3.png') }}">
         <a style="font-size:44px">MAD Search</a><br>
